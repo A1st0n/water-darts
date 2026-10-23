@@ -23,6 +23,8 @@ button {
   gap: 10px;
   padding: 20px;
   cursor: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .plant {
