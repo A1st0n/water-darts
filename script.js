@@ -77,5 +77,14 @@ function resetGame() {
   draw();
 }
 
+// Reticle follows the mouse over the plants
+const reticle = document.getElementById('reticle');
+plantsDiv.addEventListener('mousemove', (e) => {
+  reticle.style.display = 'block';
+  reticle.style.left = e.clientX + 'px';
+  reticle.style.top = e.clientY + 'px';
+});
+plantsDiv.addEventListener('mouseleave', () => (reticle.style.display = 'none'));
+
 document.getElementById('start-btn').addEventListener('click', startGame);
 document.getElementById('reset-btn').addEventListener('click', resetGame);

@@ -5,8 +5,7 @@ body {
   background: #F5F5F5;
 }
 
-header { background: #1A1A1A; color: #fff; padding: 10px; }
-header a { color: #FFC907; }
+a { color: #2E9DF7; }
 
 button {
   background: #FFC907;
@@ -22,6 +21,7 @@ button {
   justify-content: center;
   gap: 10px;
   padding: 20px;
+  cursor: none;
 }
 
 .plant {
@@ -30,7 +30,17 @@ button {
   background: #fff;
   border: 2px solid #2E9DF7;
   border-radius: 8px;
-  cursor: pointer;
 }
 
 .bar { height: 8px; background: #2E9DF7; }
+
+#reticle {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border: 3px solid #1A1A1A;
+  border-radius: 50%;
+  pointer-events: none;
+  display: none;
+}
