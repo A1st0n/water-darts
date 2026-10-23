@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Darts | charity: water</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="https://www.charitywater.org" target="_blank" rel="noopener">charity<span>:</span> water</a>
+    <h1>Water Darts</h1>
+  </header>
+
+  <!-- Start screen -->
+  <section id="start-screen" class="screen">
+    <p>Five plants are drying out. Throw water balloons at their targets before they wilt!</p>
+    <ul>
+      <li>Bullseye: +15 points &middot; Hit: +10 &middot; Bloom: +50</li>
+      <li>Misses fill the jerry can. A full can = +3 balloons.</li>
+      <li>Watch out for the pollution cloud: hitting it costs 10 points.</li>
+    </ul>
+    <button id="start-btn" class="btn">Start</button>
+  </section>
+
+  <!-- Game screen -->
+  <section id="game-screen" class="screen hidden">
+    <div class="hud">
+      <span>Score: <b id="score">0</b></span>
+      <span>Time: <b id="time">60</b>s</span>
+      <span>Balloons: <b id="balloons">20</b></span>
+      <button id="reset-btn" class="btn small">Reset</button>
+    </div>
+    <div id="field">
+      <div id="plants"></div>
+      <div id="cloud" title="Pollution cloud">☁️</div>
+      <div id="crosshair"></div>
+      <div id="toast"></div>
+    </div>
+    <div class="tank-row">
+      <div id="tank"><div id="tank-fill"></div></div>
+      <span>Catch tank <b id="tank-pct">0</b>%</span>
+    </div>
+  </section>
+
+  <!-- End screen -->
+  <section id="end-screen" class="screen hidden">
+    <h2 id="end-title"></h2>
+    <p id="end-msg"></p>
+    <p class="final">Final score: <b id="final-score">0</b></p>
+    <p class="fact">Nearly 1 in 10 people still live without clean water.</p>
+    <button id="again-btn" class="btn">Play again</button>
+    <a class="btn outline" href="https://www.charitywater.org/donate" target="_blank" rel="noopener">Give clean water</a>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
