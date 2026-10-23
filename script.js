@@ -2,6 +2,7 @@ let score = 0;
 let time = 60;
 let timer = null;
 let plants = [];
+let tank = 0;
 
 const plantsDiv = document.getElementById('plants');
 
@@ -9,6 +10,7 @@ function startGame() {
   clearInterval(timer);
   score = 0;
   time = 60;
+  tank = 0;
   plants = [];
   plantsDiv.innerHTML = '';
 
@@ -35,6 +37,22 @@ function waterPlant(plant) {
   checkEnd();
 }
 
+// Missing a plant fills the tank. A full tank pours +10 on every growing plant.
+function missPlant(e) {
+  if (!timer || e.target !== plantsDiv) return;
+  tank += 25;
+  document.getElementById('message').textContent = 'Miss! The water went into the tank.';
+  if (tank >= 100) {
+    tank = 0;
+    plants.forEach((p) => {
+      if (p.water > 0 && p.water < 100) p.water = Math.min(100, p.water + 10);
+    });
+    document.getElementById('message').textContent = 'Tank full! Every plant gets +10 water.';
+  }
+  draw();
+  checkEnd();
+}
+
 function tick() {
   time--;
   // Growing plants dry out by 1 each second
@@ -48,6 +66,7 @@ function tick() {
 function draw() {
   document.getElementById('score').textContent = score;
   document.getElementById('time').textContent = time;
+  document.getElementById('tank-fill').style.height = tank + '%';
   plants.forEach((p) => {
     const emoji = p.water >= 100 ? '🌼' : p.water <= 0 ? '🥀' : '🌱';
     p.el.innerHTML = emoji + '<div class="bar" style="width:' + p.water + '%"></div>';
@@ -71,6 +90,7 @@ function resetGame() {
   timer = null;
   score = 0;
   time = 60;
+  tank = 0;
   plants = [];
   plantsDiv.innerHTML = '';
   document.getElementById('message').textContent = 'Click the plants to water them before they dry out!';
@@ -86,5 +106,6 @@ plantsDiv.addEventListener('mousemove', (e) => {
 });
 plantsDiv.addEventListener('mouseleave', () => (reticle.style.display = 'none'));
 
+plantsDiv.addEventListener('click', missPlant);
 document.getElementById('start-btn').addEventListener('click', startGame);
 document.getElementById('reset-btn').addEventListener('click', resetGame);
