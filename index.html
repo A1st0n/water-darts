@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Water Darts | charity: water</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +14,13 @@
 
   <p id="message">Click the plants to water them before they dry out!</p>
   <p>Score: <b id="score">0</b> | Time: <b id="time">60</b></p>
+  <label>Difficulty
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="normal" selected>Normal</option>
+      <option value="hard">Hard</option>
+    </select>
+  </label>
   <button id="start-btn">Start</button>
   <button id="reset-btn">Reset</button>
 
@@ -19,6 +28,12 @@
   <div id="reticle"></div>
   <p>Water tank</p>
   <div id="tank"><div id="tank-fill"></div></div>
+
+  <footer>
+    <a href="https://www.charitywater.org" target="_blank">charity: water</a> |
+    <a href="https://www.charitywater.org/donate" target="_blank">Donate</a> |
+    <a href="https://www.charitywater.org/about" target="_blank">Learn more</a>
+  </footer>
 
   <script src="script.js"></script>
 </body>
